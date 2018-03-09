@@ -1,5 +1,4 @@
-"""django_auth URL Configuration
-
+"""djangoauth URL Configuration
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
 Examples:
@@ -13,16 +12,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
+from django.conf.urls import url, include
 from django.contrib import admin
-from home.views import get_index,secrets
-
+from home.views import get_index, get_secret
 from accounts import urls as accounts_urls
-
+from messenger import urls as messenger_urls
 
 urlpatterns = [
-    url(r'^$',get_index,name='home'),
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/',include(accounts_urls)),
-    url(r'^secret/',secrets,name='secret'),
+    url(r'^$', get_index, name='home'),
+    url(r'^secret/', get_secret, name='secret'),
+    url(r'^accounts/', include(accounts_urls)),
+    url(r'^messenger/', include(messenger_urls)),
+    
 ]
