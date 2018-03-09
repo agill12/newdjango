@@ -12,7 +12,7 @@
     
     <div class="row">
         <div class="col-sm-3 col-md-2">
-            <a href={% url 'compose' %} class="btn btn-danger btn-sm btn-block" role="button"><i class="glyphicon glyphicon-edit"></i> Compose</a>
+            <a href="#" class="btn btn-danger btn-sm btn-block" role="button"><i class="glyphicon glyphicon-edit"></i> Compose</a>
             <hr>
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="{% url 'inbox' %}"><span class="badge pull-right">{{ user.messages_received.all|length }}</span> Inbox </a>
@@ -24,13 +24,15 @@
                         <div class="tab-content">
                 <div class="tab-pane fade in active" id="home">
                     <div class="list-group">
+                     <form method='POST'>
+                     {% csrf_token %}
+                     {{ form }}
+                     <input type="submit" value="Submit"/>
+                     </form> 
                         
-                        {% for message in user.messages_sent.all %}
-                        <a href="#" class="list-group-item">
-                            <span class="glyphicon glyphicon-star-empty"></span><span class="name" style="min-width: 120px;
-                                display: inline-block;">{{ message.sender.username }}</span> <span class="">{{ message.subject }}</span>
-                            <span class="text-muted" style="font-size: 11px;">- {{ message.body }}</span> <span class="badge">12:10 AM</span> <span class="pull-right"></span></a>
-                        {% endfor %}
+                        
+                        
+                      
                                 
                     </div>
                 </div>

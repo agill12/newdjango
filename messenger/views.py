@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Message
+from .forms import ComposeForm
 
 # Create your views here.
 from django.shortcuts import render
@@ -18,7 +19,13 @@ def view_message(request,id):
     
     
 def compose(request):
-    return render(request, 'messenger/compose.html')
+    if request.method=='POST':
+        form=ComposeForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form=ComposeForm
+    return render(request, 'messenger/compose.html',{'form':form})
     
 
 
