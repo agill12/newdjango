@@ -1,0 +1,1 @@
+web: gunicorn auth_django.wsgi:applicaton
