@@ -15,7 +15,7 @@ class Messenger_Tests(TestCase):
         self.assertEqual(sent_res.func,sent)
 
     def test_view_resolves(self):
-        view_res=resolve('/messenger/view_message/1/')
+        view_res=resolve('/messenger/view_message/600/')
         self.assertEqual(view_res.func,view_message)
 
 
@@ -26,6 +26,8 @@ class Messenger_Tests(TestCase):
     def test_message_resolves_id(self):
         error_res=self.client.get('/messenger/view_message')
         self.assertEqual(error_res.status_code,404)
+        
+    
         
   
         
