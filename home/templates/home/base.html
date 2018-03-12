@@ -33,15 +33,16 @@
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
                     <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                     <li><a href="{% url 'inbox' %}">
+                        <i class="fa fa-envelope"></i> Inbox 
+                        <label class="badge badge-warning">{{ unread_mail }}</label>
+                    </a></li>
                     {% else %}
                     <li><a href="{% url 'register' %}"><i class="fa fa-user-plus"></i> Register</a></li>
                     <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
                     {% endif %}
                     {% if user.messages_received.all|length > 0 %}
-                    <li><a href="{% url 'inbox' %}">
-                        <i class="fa fa-envelope"></i> Inbox 
-                        <label class="badge badge-warning">{{ user.messages_received.all|length }}</label>
-                    </a></li>
+                   
                     {% endif %}
                 </ul>
             </div>

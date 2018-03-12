@@ -5,5 +5,5 @@ class ComposeForm(forms.ModelForm):
     
     class Meta:
         model=Message
-        fields=('subject','body','sender','recipient','read')
+        fields=('subject','body','recipient','read')
     
