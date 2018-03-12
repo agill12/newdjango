@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['auth-django-agill1.c9users.io']
+ALLOWED_HOSTS = ['auth-django-agill1.c9users.io','djangoauth.herokuapp.com']
 
 
 # Application definition
