@@ -84,7 +84,7 @@ DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3"))
 }
 
-
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 

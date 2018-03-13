@@ -26,7 +26,7 @@
                     <div class="list-group">
                         
                         {% for message in user.messages_sent.all %}
-                        <a href="#" class="list-group-item">
+                        <a href={% url 'view_message' message.id %} class="list-group-item">
                             <span class="glyphicon glyphicon-star-empty"></span><span class="name" style="min-width: 120px;
                                 display: inline-block;">{{ message.sender.username }}</span> <span class="">{{ message.subject }}</span>
                             <span class="text-muted" style="font-size: 11px;">- {{ message.body }}</span> <span class="badge">12:10 AM</span> <span class="pull-right"></span></a>

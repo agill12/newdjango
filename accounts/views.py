@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def logout(request):
     auth.logout(request)
+    messages.success(request,'You have successfully logged out!')
     return redirect("home")
 
 def login(request):
@@ -22,6 +23,7 @@ def login(request):
             if user is not None:
                 #Log them in
                 auth.login(request, user)
+                messages.success(request,'You have successfully logged in')
                 if request.GET and 'next' in request.GET:
 	                next = request.GET['next']
 	                return redirect(next)
