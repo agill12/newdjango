@@ -39,7 +39,7 @@ def login(request):
     
     
     return render(request, 'accounts/login.html', { 'form': form })
-# @login_required()   
+@login_required()   
 def profile(request):
     return render(request,'accounts/profile.html')
     
